@@ -34,20 +34,19 @@ Volume = width * height * length % whole enclosure m^3
 VolumeHull = width * height * length - ((width - thicc) * (height - thicc) * (length - thicc)) % m^3
 massHull = VolumeHull * 2300 + (Volume - VolumeHull)*airDensity
 
-% VolumeHull = 3276.746*(1/100)^3; % m^3
-% massHull = 3.473351; % kg
-
 numberOfBags = 7
 weightedMass = massHull + numberOfBags*oneBagMass
+artificialDensity = weightedMass/Volume;
 
-percentSubmerged = (weightedMass/Volume)/freshWaterDensity
+% percentSubmerged = (weightedMass/Volume)/freshWaterDensity
+
+% submergedMass = width*length*thicc 
+
+draft = (weightedMass/freshWaterDensity)*(length*width)*3
 
 % FB = BuoyantForce(freshWaterDensity, gravity, volume);
-
 % heelAngle = (10*2*pi)/180; % degrees, then B' and B'' make a circle with M as the metacenter
-
 % syms B BM Bprime specificVolume
-
 % BM == (B*Bprime)/tan(heelAngle)
-
 % deltaMoment = specificVolume * B*Bprime
+% iT = 
