@@ -27,7 +27,6 @@
 % KB = T/2;
 % BM = iT/Volume;
 
-
 f = round(365*1.5*4, 0);
 i = 81*1.5/4;
 total_caffeine = 0;  % Initialize the cumulative caffeine in the body
