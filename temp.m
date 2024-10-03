@@ -23,10 +23,10 @@ oneBagVolume = 0.000946353; % m^3
 oneBagMass = gravelDensity * oneBagVolume;
 disp("One bag weighs " + oneBagMass + "kg")
 
-width = 0.221; % meters
-height = 0.209; % meters
+width = 0.4; % meters
+height = 0.2; % meters
 % length = 0.6*(1.2 - (width + height));
-length = 0.5; % meters
+length = 0.4; % meters
 thicc = 0.01; % meters
 Volume = width * height * length % whole enclosure m^3
 VolumeHull = width * height * length - ((width - thicc) * (height - thicc) * (length - thicc)) % m^3
@@ -35,7 +35,7 @@ massHull = VolumeHull * 2300 + (Volume - VolumeHull)*airDensity
 CG = [0, 0, 0];
 G = CG + [width/2, length/2, height/2];
 
-numberOfBags = 0
+numberOfBags = 15
 weightedMass = massHull + numberOfBags*oneBagMass
 artificialDensity = weightedMass/Volume;
 
@@ -49,4 +49,4 @@ IT = (2/3) * integral(@(x) (width/2).^3, -length/2, length/2, 'ArrayValued', tru
 BM = IT/submergedVolume; % metacentric radius
 GM = KB + BM - KG;
 
-disp("the value calculated for GM is " + GM + " meters")
+disp("the value calculated for GM is " + GM + " meters") 
